@@ -1,0 +1,30 @@
+```typescript
+type League = {
+    id: string
+    name: string
+    sportId: string
+    regionId: string
+    regionCode: string
+    defaultOrder: number
+    isTopLeague: boolean
+    liveFixturesTotalCount: number
+    fixturesTotalCount: number
+    fixturesCount: number
+    outrightsTotalCount: number
+    entityType: EntityType
+}
+```
+
+
+|Name|	Description| 	Format|	Queryable|	Returnable |
+|id|	specifies the Identifier of the league.	|number|	Yes|	Yes|
+|name|	Specifies the name of the league in the particular translation.	|string	|Yes|	Yes|
+|SportId	|Specifies the identifier of the sport.	|number|	Yes|	Yes|
+|regionId|	Specifies the identifier of the region.|number|	Yes|	Yes|
+|order	|Specifies the sorting order.|	number	|Yes|	Yes|
+|istopLeague	|Specifies if the league is marked as top.|	boolean	|Yes|	Yes|
+|liveFixturesTotalCount	|Specifies the number of in-play events.| 	number|	Yes|	Yes|
+|fixturesTotalCount|	Specifies the total number of games, both live and pre-live. 	|number|	Yes|	Yes|
+|fixturesCount|	Specifies the number of games, both live and pre-live, filtered by time range.| 	number	|Yes|	Yes|
+|outrightsTotalCount|	Specifies the number of active outrights in a league. |	number|	Yes|	Yes| 
+|entityType|Specifies the entity type.|	entitytype|	No	|Yes|

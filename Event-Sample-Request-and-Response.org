@@ -1,0 +1,404 @@
+*Event Sample Request*
+
+|Parameter|	Description|	Fromat	|Required|Parameter Type|Notes|
+|Query	|Specifies a set of structured items, customized to obtain data.|	string|	Yes|	query|	Example: $top=5|
+|includeMarkets|Specifies a set of structured items to obtain additional data for the markets.|	string|	No|	query|Default market types will always be returned.|	
+|locale|	A two-letter code of the language that will be returned in the response.|	string	|Yes|path||
+|fastPreloadAmount|	|integer|	No|	query	||
+
+The top 5 events are requested in the query: $top=5. 
+
+When the conditions change, Push update is executed and the items in the response are reordered.
+
+*Event Sample Response*
+
+```json
+
+{
+  "feedId": "Q_#_1_#_Events?$top=5_*_None/None_~_",
+  "updates": [
+    {
+      "type": 0,
+      "payload": {
+        "add": [
+          {
+            "id": "8496672",
+            "entityType": 0,
+            "type": "Fixture",
+            "sportId": "6",
+            "sportOrder": 6,
+            "sportName": "Tennis",
+            "eventName": "",
+            "regionId": "8",
+            "regionCode": "CH",
+            "regionName": "Switzerland",
+            "leagueId": "82534",
+            "leagueName": "ATP Basel",
+            "leagueOrder": 9050860,
+            "isTopLeague": true,
+            "participants": [
+              {
+                "id": "82610",
+                "name": "Vasek Pospisil",
+                "venueRole": "Home",
+                "country": "International",
+                "metadata": {}
+              },
+              {
+                "id": "87496",
+                "name": "Jack Sock",
+                "venueRole": "Away",
+                "country": "International",
+                "metadata": {}
+              }
+            ],
+            "markets": [
+              {
+                "id": "35043379"
+              },
+              {
+                "id": "35043380"
+              },
+              {
+                "id": "35043381"
+              },
+              {
+                "id": "35043382"
+              },
+              {
+                "id": "35043383"
+              },
+              {
+                "id": "35043384"
+              },
+              {
+                "id": "35043385"
+              },
+              {
+                "id": "35043391"
+              },
+              {
+                "id": "35043392"
+              },
+              {
+                "id": "35043393"
+              },
+              {
+                "id": "35043394"
+              },
+              {
+                "id": "1_22226574"
+              },
+              {
+                "id": "1_22226704"
+              },
+              {
+                "id": "3_22226704"
+              },
+              {
+                "id": "2_22226710"
+              },
+              {
+                "id": "3_22226710"
+              },
+              {
+                "id": "22226716"
+              },
+              {
+                "id": "22226718"
+              },
+              {
+                "id": "35043159"
+              }
+            ],
+            "totalMarketsCount": 19,
+            "startEventDate": "2017-10-24T12:30:00Z",
+            "isLive": true,
+            "isGoingLive": false,
+            "liveGameState": {
+              "status": 14,
+              "score": null,
+              "isSuspended": true,
+              "timeInGame": "2017-10-22T19:54:39.947Z"
+            },
+            "tags": [
+              "FastMarket"
+            ],
+            "metadata": {}
+          },
+          {
+            "id": "8496673",
+            "entityType": 0,
+            "type": "Fixture",
+            "sportId": "6",
+            "sportOrder": 6,
+            "sportName": "Tennis",
+            "eventName": "",
+            "regionId": "8",
+            "regionCode": "CH",
+            "regionName": "Switzerland",
+            "leagueId": "82534",
+            "leagueName": "ATP Basel",
+            "leagueOrder": 9050860,
+            "isTopLeague": true,
+            "participants": [
+              {
+                "id": "66700",
+                "name": "David Goffin",
+                "venueRole": "Home",
+                "country": "International",
+                "metadata": {}
+              },
+              {
+                "id": "76957",
+                "name": "Peter Gojowczyk",
+                "venueRole": "Away",
+                "country": "International",
+                "metadata": {}
+              }
+            ],
+            "markets": [
+              {
+                "id": "22254544"
+              },
+              {
+                "id": "22254545"
+              },
+              {
+                "id": "35091455"
+              },
+              {
+                "id": "35091456"
+              },
+              {
+                "id": "35091464"
+              },
+              {
+                "id": "35091465"
+              },
+              {
+                "id": "35091466"
+              },
+              {
+                "id": "22254535"
+              },
+              {
+                "id": "22254537"
+              },
+              {
+                "id": "1_22226575"
+              },
+              {
+                "id": "35043200"
+              },
+              {
+                "id": "35043202"
+              },
+              {
+                "id": "35043203"
+              },
+              {
+                "id": "1_22226737"
+              },
+              {
+                "id": "3_22226737"
+              },
+              {
+                "id": "1_22226739"
+              },
+              {
+                "id": "2_22226740"
+              },
+              {
+                "id": "3_22226740"
+              },
+              {
+                "id": "22226744"
+              },
+              {
+                "id": "22226746"
+              },
+              {
+                "id": "22226748"
+              }
+            ],
+            "totalMarketsCount": 21,
+            "startEventDate": "2017-10-24T15:00:00Z",
+            "isLive": true,
+            "isGoingLive": false,
+            "liveGameState": {
+              "status": 12,
+              "score": null,
+              "isSuspended": true,
+              "timeInGame": "2017-10-23T21:19:41.307Z"
+            },
+            "tags": [
+              "Statistics",
+              "FastMarket"
+            ],
+            "metadata": {}
+          },
+          {
+            "id": "8504862",
+            "entityType": 0,
+            "type": "Fixture",
+            "sportId": "64",
+            "sportOrder": 64,
+            "sportName": "E-Sports",
+            "eventName": "",
+            "regionId": "0",
+            "regionCode": "ZZ",
+            "regionName": "International",
+            "leagueId": "84289",
+            "leagueName": "Counter-Strike: GO ESEA",
+            "leagueOrder": 32400110,
+            "isTopLeague": false,
+            "participants": [
+              {
+                "id": "480070",
+                "name": "ex-Nitrious",
+                "venueRole": "Home",
+                "country": "International",
+                "metadata": {}
+              },
+              {
+                "id": "440818",
+                "name": "CLG Academy",
+                "venueRole": "Away",
+                "country": "International",
+                "metadata": {}
+              }
+            ],
+            "markets": [
+              {
+                "id": "1_22249154"
+              }
+            ],
+            "totalMarketsCount": 1,
+            "startEventDate": "2017-10-25T01:00:00Z",
+            "isLive": true,
+            "isGoingLive": false,
+            "liveGameState": {
+              "status": 0,
+              "score": null,
+              "isSuspended": false,
+              "timeInGame": "0001-01-01T00:00:00"
+            },
+            "tags": [],
+            "metadata": {}
+          },
+          {
+            "id": "8504863",
+            "entityType": 0,
+            "type": "Fixture",
+            "sportId": "64",
+            "sportOrder": 64,
+            "sportName": "E-Sports",
+            "eventName": "",
+            "regionId": "0",
+            "regionCode": "ZZ",
+            "regionName": "International",
+            "leagueId": "84289",
+            "leagueName": "Counter-Strike: GO ESEA",
+            "leagueOrder": 32400110,
+            "isTopLeague": false,
+            "participants": [
+              {
+                "id": "372659",
+                "name": "Rise Nation",
+                "venueRole": "Home",
+                "country": "International",
+                "metadata": {}
+              },
+              {
+                "id": "450792",
+                "name": "Adaptation",
+                "venueRole": "Away",
+                "country": "International",
+                "metadata": {}
+              }
+            ],
+            "markets": [
+              {
+                "id": "1_22249155"
+              }
+            ],
+            "totalMarketsCount": 1,
+            "startEventDate": "2017-10-25T01:30:00Z",
+            "isLive": true,
+            "isGoingLive": false,
+            "liveGameState": {
+              "status": 0,
+              "score": null,
+              "isSuspended": false,
+              "timeInGame": "0001-01-01T00:00:00"
+            },
+            "tags": [],
+            "metadata": {}
+          },
+          {
+            "id": "8504866",
+            "entityType": 0,
+            "type": "Fixture",
+            "sportId": "64",
+            "sportOrder": 64,
+            "sportName": "E-Sports",
+            "eventName": "",
+            "regionId": "0",
+            "regionCode": "ZZ",
+            "regionName": "International",
+            "leagueId": "84289",
+            "leagueName": "Counter-Strike: GO ESEA",
+            "leagueOrder": 32400110,
+            "isTopLeague": false,
+            "participants": [
+              {
+                "id": "467159",
+                "name": "Iceberg",
+                "venueRole": "Home",
+                "country": "International",
+                "metadata": {}
+              },
+              {
+                "id": "441047",
+                "name": "ANTI ECO",
+                "venueRole": "Away",
+                "country": "International",
+                "metadata": {}
+              }
+            ],
+            "markets": [
+              {
+                "id": "1_22249158"
+              }
+            ],
+            "totalMarketsCount": 1,
+            "startEventDate": "2017-10-25T03:00:00Z",
+            "isLive": true,
+            "isGoingLive": false,
+            "liveGameState": {
+              "status": 0,
+              "score": null,
+              "isSuspended": false,
+              "timeInGame": "0001-01-01T00:00:00"
+            },
+            "tags": [],
+            "metadata": {}
+          }
+        ],
+        "remove": [],
+        "change": [],
+        "order": [
+          "8496672",
+          "8496673",
+          "8504862",
+          "8504863",
+          "8504866"
+        ]
+      },
+      "offset": 0
+    }
+  ]
+}
+
+```

@@ -1,0 +1,110 @@
+*League Sample Request*
+
+|Parameter|	Description|	Fromat	|Required|Parameter Type|Notes|
+|Query	|Specifies a set of structured items, customized to obtain data.|	string|	Yes|	query|	Example: $top=5|
+|includeMarkets|Specifies a set of structured items to obtain additional data for the markets.|	string|	No|	query||	
+|locale|	A two-letter code of the language that will be returned in the response.|	string	|Yes|path|Default value is en. Other possible options are: HE, ES, etc.|
+|fastPreloadAmount|	|integer|	No|	query	||
+
+*League Sample Response* 
+
+The top 5 leagues are requested in the query: $top=5. 
+
+When conditions change, Push update is executed and the items in the response are reordered.
+
+```json
+
+{
+  "feedId": "V_#_1_#_Leagues?$top=5_*_None/None_~_",
+  "updates": [
+    {
+      "type": 0,
+      "payload": {
+        "add": [
+          {
+            "id": "105389",
+            "entityType": 3,
+            "name": "Nsoccerro test league",
+            "sportId": "85",
+            "regionId": "0",
+            "regionCode": "ZZ",
+            "defaultOrder": 10,
+            "isTopLeague": false,
+            "liveFixturesTotalCount": 0,
+            "fixturesTotalCount": 0,
+            "fixturesCount": 0,
+            "outrightsTotalCount": 1
+          },
+          {
+            "id": "105388",
+            "entityType": 3,
+            "name": "Nsoccercom test league",
+            "sportId": "84",
+            "regionId": "0",
+            "regionCode": "ZZ",
+            "defaultOrder": 10,
+            "isTopLeague": false,
+            "liveFixturesTotalCount": 0,
+            "fixturesTotalCount": 0,
+            "fixturesCount": 0,
+            "outrightsTotalCount": 1
+          },
+          {
+            "id": "105393",
+            "entityType": 3,
+            "name": "Bftennis new test league",
+            "sportId": "89",
+            "regionId": "0",
+            "regionCode": "ZZ",
+            "defaultOrder": 10,
+            "isTopLeague": false,
+            "liveFixturesTotalCount": 0,
+            "fixturesTotalCount": 0,
+            "fixturesCount": 0,
+            "outrightsTotalCount": 1
+          },
+          {
+            "id": "105394",
+            "entityType": 3,
+            "name": "b7tennis new test league",
+            "sportId": "90",
+            "regionId": "0",
+            "regionCode": "ZZ",
+            "defaultOrder": 10,
+            "isTopLeague": false,
+            "liveFixturesTotalCount": 0,
+            "fixturesTotalCount": 0,
+            "fixturesCount": 0,
+            "outrightsTotalCount": 1
+          },
+          {
+            "id": "105391",
+            "entityType": 3,
+            "name": "Nsoccerde test league",
+            "sportId": "87",
+            "regionId": "0",
+            "regionCode": "ZZ",
+            "defaultOrder": 10,
+            "isTopLeague": false,
+            "liveFixturesTotalCount": 0,
+            "fixturesTotalCount": 0,
+            "fixturesCount": 0,
+            "outrightsTotalCount": 1
+          }
+        ],
+        "remove": [],
+        "change": [],
+        "order": [
+          "105389",
+          "105388",
+          "105393",
+          "105394",
+          "105391"
+        ]
+      },
+      "offset": 0
+    }
+  ]
+}
+
+```

@@ -1,0 +1,23 @@
+```typescript
+type Region = {
+    id: string
+    code: string
+    name: string
+    liveFixturesTotalCount: number
+    fixturesTotalCount: number
+    fixturesCount: number
+    outrightsTotalCount: number
+    entityType: EntityType
+}
+```
+
+
+|Name|	Description| 	Format|	Queryable|	Returnable |
+|id|	Specifies the identifier of the region.|	number|	Yes	|Yes|
+|code	|Specifies the country code or (for regions in the country) the region code, according to the International Organization for Standardization ( ISO).|	string|	Yes|	Yes|
+|name	|Specifies the name of the region.	|string	|Yes|	Yes|
+|liveFixturesTotalCount	|Specifies the number of in-play events.|	number|	Yes|	Yes|
+|fixturesTotalCount|	Specifies the total number of games, both live and pre-live. |	number|	Yes|	Yes|
+|fixturesCount	|Specifies the number of games, both live and pre-live, filtered by time range.	|number	|Yes|	Yes|
+|outrightsTotalCount|	Specifies the number of active outrights in a league.|	number|	Yes	|Yes|
+|entityType|	Specifies the entity type.|	EntityType|	No	|Yes|

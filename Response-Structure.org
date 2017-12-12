@@ -1,0 +1,71 @@
+All responses from the Sports Data API use the same structure. The returned HTTP status code defines the call; it might be a successful or failed call. (For more information refer to Status Codes and Errors section of this document.) The response body of the successful call is in JSON format.
+
+The Sports Data API is designed with the thought of real-time applications in mind. When a client requests information, using a query, the Sports Data API enables a subscription to live stream of continuous query updates.
+
+The high-level structure of the response payload is as follows:
+
+```
+{
+  "feedId": "Q_#_18_#_Events?$filter=liveGameState/isSuspended eq true_*_None/None_~_",
+  "updates": [
+    {
+      "type": 1,
+      "payload": {
+        "add": {
+          "events": [],
+          "markets": [],
+          "sports": [],
+          "regions": [],
+          "leagues": []
+        },
+        "remove": {
+          "events": [],
+          "markets": [],
+          "sports": [],
+          "regions": [],
+          "leagues": []
+        },
+        "change": {
+          "events": [],
+          "markets": [],
+          "sports": [],
+          "regions": [],
+          "leagues": []
+        },
+        "order": []
+      },
+      "offset": 8
+    }
+  ]
+}
+```
+
+|Name|Description|Notes|
+|-------+---------|
+| =feedId= |Specifies the type of the feed. This identifier is used to subscribe to the feed. Furthermore, this parameter provides information on the Site Operator and the requested query.| This is an example of the feedid: Q_#_18_#_Events?$filter=contains(leagueName, 'Spain')_*_None/None_~_Markets?$filter=eventId eq '5890953'. You can see feedid Breakdown below.|
+| =updates= |Specifies the updates that occur in the feed.	|-|
+| =type= |Specifies the type of the payload.|The payload type might be either Snapshot or Update. See additional information on both types below. See also the =offset= property.|
+| =payload= |Specifies the essential data in the response.|-|
+| =add= |Specifies the data that is added. Broken down into separate arrays per entity type (events, markets, sports, leagues, regions).|An array containing the added items. All objects contained in this array will always have the complete list of returnable attributes.|
+| =remove= |Specifies the data that is removed. Broken down into separate arrays per entity type (events, markets, sports, leagues, regions).|An array containing the removed items. Objects contained in this array will be returned only with the "id" and "EntityType" attributes.|
+| =change= |Specifies the data that is changed. Broken down into separate arrays per entity type (events, markets, sports, leagues, regions).|An array containing the changed items. Objects contained in this array can and normally will come only with a partial list of attributes, namely those representing aspects of the object which are likely to change and the change is likely to have significance for the correct presentation of the data to the end user.|
+| =order= |Specifies the order of changed items.|If the query specifies the order (asc or desc), the items are ordered accordingly.|
+| =offset= |Specifies the number of changes in the feed.|If some changes occur in the feed, the number of the offset will change accordingly. For example "offset": 0 means this query is requested for the first time.|
+
+*** feedid Breakdown
+
+- Type of the feed id: The first letter specifies the type of the feed. The possible options are F - filter, V - virtual and Q - query.
+- Id of the site operator: Specifies the site operator (e.g. 18),
+- Query: Displays the query.
+- Similarity symbol - ~: This symbol appears at the end of the query. If an event is requested, markets query is shown after the Similarity symbol. 
+
+*** Update Types
+
+- Snapshot = 0. A snapshot is available every time change feed occurs. It captures a temporary status of an entity. If this update type appears in the response, full update/render needs to be performed on the widget/component. The Sports Data API always returns a snapshot on the first HTTP pull request while establishing a WebSocket connection.
+- Update = 1. The update is some part of the snapshot, which contains only the changes occurred since the last update. This update type is used to reduce the transmitted data amount. Usually, after establishing a connection with the Sports Data API, the client will receive mostly updates. 
+
+*** Entity type arrays in "add", "remove", and "change" nodes
+
+- As most endpoint responses contain a single entity type, "add", "remove", and "change" nodes will usually contain a single property which will be named after the respective entity type. For example, a query to the /sports endpoint will receive an array listing sport entities under the "sports" attribute of the "add" node.
+- The only exception is the /events endpoint, which can also respond with market entities (related to the events matching the main query). In this case, the "add", "remove", and "change" nodes can contain separate arrays, attributed respectively to "events" and "markets".
+- In all cases, the "order" array will list the current order only for the main entity type for the respective endpoint. Hence, in responses from the /events endpoint, "order" will list only events, even if the response includes market entities as well.

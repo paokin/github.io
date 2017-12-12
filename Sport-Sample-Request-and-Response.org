@@ -1,0 +1,88 @@
+*Sports Sample Request*
+
+|Parameter|	Description|	Fromat	|Required|Type|Notes|
+|Query	|Specifies a set of structured items, customized to obtain data.|	string|	Yes|	query|	Example: $top=5|
+|includeMarkets|Specifies a set of structured items to obtain additional data for the markets.|	string|	No|	query||	
+|locale|	A two-letter code of the language that will be returned in the response.|	string	|Yes|path|Default value is en. Other possible options are: HE, ES, etc.|
+|fastPreloadAmount|	|integer|	No|	query	||
+*Sports Sample Response*
+
+The top 5 sports are requested in the query: $top=5. 
+When the conditions change, Push update is executed and the items in the response are reordered.
+
+```json
+
+{
+  "feedId": "V_#_1_#_Sports?$top=5_*_None/None_~_",
+  "updates": [
+    {
+      "type": 0,
+      "payload": {
+        "add": [
+          {
+            "id": "80",
+            "entityType": 2,
+            "order": 80,
+            "name": "Social Specials",
+            "liveFixturesTotalCount": 0,
+            "fixturesTotalCount": 0,
+            "fixturesCount": 0,
+            "outrightsTotalCount": 3
+          },
+          {
+            "id": "31",
+            "entityType": 2,
+            "order": 31,
+            "name": "Water Polo",
+            "liveFixturesTotalCount": 3,
+            "fixturesTotalCount": 3,
+            "fixturesCount": 3,
+            "outrightsTotalCount": 0
+          },
+          {
+            "id": "78",
+            "entityType": 2,
+            "order": 78,
+            "name": "Price Boosts",
+            "liveFixturesTotalCount": 0,
+            "fixturesTotalCount": 0,
+            "fixturesCount": 0,
+            "outrightsTotalCount": 10
+          },
+          {
+            "id": "65",
+            "entityType": 2,
+            "order": 65,
+            "name": "Chess",
+            "liveFixturesTotalCount": 0,
+            "fixturesTotalCount": 0,
+            "fixturesCount": 0,
+            "outrightsTotalCount": 1
+          },
+          {
+            "id": "59",
+            "entityType": 2,
+            "order": 59,
+            "name": "Cricket",
+            "liveFixturesTotalCount": 4,
+            "fixturesTotalCount": 10,
+            "fixturesCount": 10,
+            "outrightsTotalCount": 15
+          }
+        ],
+        "remove": [],
+        "change": [],
+        "order": [
+          "80",
+          "31",
+          "78",
+          "65",
+          "59"
+        ]
+      },
+      "offset": 0
+    }
+  ]
+}
+
+```

@@ -1,0 +1,86 @@
+*Region Sample Request*
+
+|Parameter|	Description|	Fromat	|Required|Parameter Type|Notes|
+|Query	|Specifies a set of structured items, customized to obtain data.|	string|	Yes|	query|	Example: $top=200|
+|includeMarkets|Specifies a set of structured items to obtain additional data for the markets.|	string|	No|	query||	
+|locale|	A two-letter code of the language that will be returned in the response.|	string	|Yes|path|Default value is en. Other possible options are: HE, ES, etc.|
+|fastPreloadAmount|	|integer|	No|	query	||
+
+*Region Sample Response*
+
+When conditions change, Push update is executed and the items in the response are reordered.
+
+```json
+{
+  "feedId": "V_#_1_#_Regions?$top=5_*_None/None_~_",
+  "updates": [
+    {
+      "type": 0,
+      "payload": {
+        "add": [
+          {
+            "id": "3",
+            "entityType": 4,
+            "code": "IS",
+            "name": "Iceland",
+            "liveFixturesTotalCount": 12,
+            "fixturesTotalCount": 15,
+            "fixturesCount": 15,
+            "outrightsTotalCount": 0
+          },
+          {
+            "id": "8",
+            "entityType": 4,
+            "code": "CH",
+            "name": "Switzerland",
+            "liveFixturesTotalCount": 1635,
+            "fixturesTotalCount": 2795,
+            "fixturesCount": 2795,
+            "outrightsTotalCount": 1722
+          },
+          {
+            "id": "1",
+            "entityType": 4,
+            "code": "TN",
+            "name": "Tunisia",
+            "liveFixturesTotalCount": 164,
+            "fixturesTotalCount": 188,
+            "fixturesCount": 188,
+            "outrightsTotalCount": 61
+          },
+          {
+            "id": "12",
+            "entityType": 4,
+            "code": "PY",
+            "name": "Paraguay",
+            "liveFixturesTotalCount": 154,
+            "fixturesTotalCount": 265,
+            "fixturesCount": 265,
+            "outrightsTotalCount": 10
+          },
+          {
+            "id": "11",
+            "entityType": 4,
+            "code": "NZ",
+            "name": "New Zealand",
+            "liveFixturesTotalCount": 83,
+            "fixturesTotalCount": 111,
+            "fixturesCount": 111,
+            "outrightsTotalCount": 28
+          }
+        ],
+        "remove": [],
+        "change": [],
+        "order": [
+          "3",
+          "8",
+          "1",
+          "12",
+          "11"
+        ]
+      },
+      "offset": 0
+    }
+  ]
+}
+```

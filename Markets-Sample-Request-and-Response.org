@@ -1,0 +1,422 @@
+*Markets Sample Request*
+
+|Parameter|	Description|	Fromat	|Required|	Parameter Type|	Notes|
+|Query	|Structured items to obtain customized data.|	string	|Yes|	query|	Example: $top=5|
+|locale|	A two-letter code of the language that will be returned in the response.|	string|	Yes|	path ||
+|fastPreloadAmount|	|integer|	No|	query	||
+
+The top 5 markets are requested in the query: $top=5. 
+
+*Markets Sample Response*
+
+When conditions change Push update is executed and the items in the response are reordered.
+
+```json
+
+{
+  "feedId": "Q_#_1_#_Markets?$top=5_*_None/None_~_",
+  "updates": [
+    {
+      "type": 0,
+      "payload": {
+        "add": [
+          {
+            "id": "34994598",
+            "entityType": 1,
+            "marketType": {
+              "id": "1322",
+              "name": "Set {S} - Game {G} - Point {P} Winner",
+              "lineTypeName": null,
+              "swapTeams": false
+            },
+            "leagueId": "82534",
+            "sportId": "6",
+            "isLive": true,
+            "startDate": "2017-10-24T11:00:00Z",
+            "title": "",
+            "participantMapping": 0,
+            "selections": [
+              {
+                "id": "403784350",
+                "side": 0,
+                "type": 13,
+                "group": 0,
+                "name": "Benoit Paire",
+                "title": "LineType1",
+                "displayOdds": {
+                  "decimal": "2.36"
+                },
+                "trueOdds": 2.3600000000000003,
+                "points": 0
+              },
+              {
+                "id": "403784351",
+                "side": 0,
+                "type": 15,
+                "group": 0,
+                "name": "Steve Johnson",
+                "title": "LineType1",
+                "displayOdds": {
+                  "decimal": "1.53191489361702"
+                },
+                "trueOdds": 1.5319148936170213,
+                "points": 0
+              }
+            ],
+            "eventId": "8489107",
+            "liveData": null,
+            "metadata": null,
+            "groupId": 0,
+            "groupName": null,
+            "liveGroupId": 0,
+            "preLiveGroupId": 0,
+            "tags": []
+          },
+          {
+            "id": "34994594",
+            "entityType": 1,
+            "marketType": {
+              "id": "715",
+              "name": "Set Betting (Correct Score)",
+              "lineTypeName": null,
+              "swapTeams": false
+            },
+            "leagueId": "82534",
+            "sportId": "6",
+            "isLive": true,
+            "startDate": "2017-10-24T11:00:00Z",
+            "title": "",
+            "participantMapping": 0,
+            "selections": [
+              {
+                "id": "403784331",
+                "side": 0,
+                "type": 15,
+                "group": 0,
+                "name": "1-2",
+                "title": "LineType1",
+                "displayOdds": {
+                  "decimal": "0"
+                },
+                "trueOdds": 0,
+                "points": 0
+              },
+              {
+                "id": "403784332",
+                "side": 0,
+                "type": 13,
+                "group": 0,
+                "name": "3-0",
+                "title": "LineType1",
+                "displayOdds": {
+                  "decimal": "0"
+                },
+                "trueOdds": 0,
+                "points": 0
+              },
+              {
+                "id": "403784333",
+                "side": 0,
+                "type": 15,
+                "group": 0,
+                "name": "0-3",
+                "title": "LineType1",
+                "displayOdds": {
+                  "decimal": "0"
+                },
+                "trueOdds": 0,
+                "points": 0
+              },
+              {
+                "id": "403784334",
+                "side": 0,
+                "type": 13,
+                "group": 0,
+                "name": "3-1",
+                "title": "LineType1",
+                "displayOdds": {
+                  "decimal": "0"
+                },
+                "trueOdds": 0,
+                "points": 0
+              },
+              {
+                "id": "403784335",
+                "side": 0,
+                "type": 15,
+                "group": 0,
+                "name": "1-3",
+                "title": "LineType1",
+                "displayOdds": {
+                  "decimal": "0"
+                },
+                "trueOdds": 0,
+                "points": 0
+              },
+              {
+                "id": "403784336",
+                "side": 0,
+                "type": 13,
+                "group": 0,
+                "name": "3-2",
+                "title": "LineType1",
+                "displayOdds": {
+                  "decimal": "0"
+                },
+                "trueOdds": 0,
+                "points": 0
+              },
+              {
+                "id": "403784337",
+                "side": 0,
+                "type": 15,
+                "group": 0,
+                "name": "2-3",
+                "title": "LineType1",
+                "displayOdds": {
+                  "decimal": "0"
+                },
+                "trueOdds": 0,
+                "points": 0
+              },
+              {
+                "id": "403784328",
+                "side": 0,
+                "type": 13,
+                "group": 0,
+                "name": "2-0",
+                "title": "LineType1",
+                "displayOdds": {
+                  "decimal": "0"
+                },
+                "trueOdds": 0,
+                "points": 0
+              },
+              {
+                "id": "403784329",
+                "side": 0,
+                "type": 15,
+                "group": 0,
+                "name": "0-2",
+                "title": "LineType1",
+                "displayOdds": {
+                  "decimal": "0"
+                },
+                "trueOdds": 0,
+                "points": 0
+              },
+              {
+                "id": "403784330",
+                "side": 0,
+                "type": 13,
+                "group": 0,
+                "name": "2-1",
+                "title": "LineType1",
+                "displayOdds": {
+                  "decimal": "1.005"
+                },
+                "trueOdds": 1.005,
+                "points": 0
+              }
+            ],
+            "eventId": "8489107",
+            "liveData": null,
+            "metadata": null,
+            "groupId": 0,
+            "groupName": null,
+            "liveGroupId": 0,
+            "preLiveGroupId": 0,
+            "tags": []
+          },
+          {
+            "id": "1_22265549",
+            "entityType": 1,
+            "marketType": {
+              "id": "1_39",
+              "name": "Live Betting",
+              "lineTypeName": null,
+              "swapTeams": false
+            },
+            "leagueId": "79699",
+            "sportId": "2",
+            "isLive": true,
+            "startDate": "2017-10-24T11:00:00Z",
+            "title": null,
+            "participantMapping": 0,
+            "selections": [
+              {
+                "id": "304345058",
+                "side": 1,
+                "type": 1,
+                "group": 43497715,
+                "name": "Live",
+                "title": "Moneyline",
+                "displayOdds": {
+                  "decimal": "6.75"
+                },
+                "trueOdds": 6.75,
+                "points": -555.5499877929688
+              },
+              {
+                "id": "304345061",
+                "side": 2,
+                "type": 1,
+                "group": 43497715,
+                "name": "Live",
+                "title": "Moneyline",
+                "displayOdds": {
+                  "decimal": "0"
+                },
+                "trueOdds": 0,
+                "points": -555.5499877929688
+              },
+              {
+                "id": "304345062",
+                "side": 3,
+                "type": 1,
+                "group": 43497715,
+                "name": "Live",
+                "title": "Moneyline",
+                "displayOdds": {
+                  "decimal": "1.09090909090909"
+                },
+                "trueOdds": 1.0909090909090908,
+                "points": -555.5499877929688
+              }
+            ],
+            "eventId": "8507865",
+            "liveData": {
+              "scoreHome": 81,
+              "scoreAway": 88,
+              "isSuspended": true
+            },
+            "metadata": null,
+            "groupId": 0,
+            "groupName": null,
+            "liveGroupId": 0,
+            "preLiveGroupId": 0,
+            "tags": [
+              "Default"
+            ]
+          },
+          {
+            "id": "35082486",
+            "entityType": 1,
+            "marketType": {
+              "id": "709",
+              "name": "Set {S} - Game {G} Winner",
+              "lineTypeName": null,
+              "swapTeams": false
+            },
+            "leagueId": "105452",
+            "sportId": "6",
+            "isLive": true,
+            "startDate": "2017-10-24T10:30:00Z",
+            "title": "",
+            "participantMapping": 0,
+            "selections": [
+              {
+                "id": "404809441",
+                "side": 0,
+                "type": 13,
+                "group": 0,
+                "name": "Antonin Bolardt",
+                "title": "LineType1",
+                "displayOdds": {
+                  "decimal": "3.62"
+                },
+                "trueOdds": 3.62,
+                "points": 0
+              },
+              {
+                "id": "404809442",
+                "side": 0,
+                "type": 15,
+                "group": 0,
+                "name": "Levente Godry",
+                "title": "LineType1",
+                "displayOdds": {
+                  "decimal": "1.23364485981308"
+                },
+                "trueOdds": 1.233644859813084,
+                "points": 0
+              }
+            ],
+            "eventId": "8504294",
+            "liveData": null,
+            "metadata": null,
+            "groupId": 0,
+            "groupName": null,
+            "liveGroupId": 0,
+            "preLiveGroupId": 0,
+            "tags": []
+          },
+          {
+            "id": "35082485",
+            "entityType": 1,
+            "marketType": {
+              "id": "708",
+              "name": "Set {S} - Game {G} - Point {P} Winner",
+              "lineTypeName": null,
+              "swapTeams": false
+            },
+            "leagueId": "105452",
+            "sportId": "6",
+            "isLive": true,
+            "startDate": "2017-10-24T10:30:00Z",
+            "title": "",
+            "participantMapping": 0,
+            "selections": [
+              {
+                "id": "404809439",
+                "side": 0,
+                "type": 13,
+                "group": 0,
+                "name": "Antonin Bolardt",
+                "title": "LineType1",
+                "displayOdds": {
+                  "decimal": "1.60606060606061"
+                },
+                "trueOdds": 1.606060606060606,
+                "points": 0
+              },
+              {
+                "id": "404809440",
+                "side": 0,
+                "type": 15,
+                "group": 0,
+                "name": "Levente Godry",
+                "title": "LineType1",
+                "displayOdds": {
+                  "decimal": "2.16"
+                },
+                "trueOdds": 2.16,
+                "points": 0
+              }
+            ],
+            "eventId": "8504294",
+            "liveData": null,
+            "metadata": null,
+            "groupId": 0,
+            "groupName": null,
+            "liveGroupId": 0,
+            "preLiveGroupId": 0,
+            "tags": []
+          }
+        ],
+        "remove": [],
+        "change": [],
+        "order": [
+          "34994598",
+          "34994594",
+          "1_22265549",
+          "35082486",
+          "35082485"
+        ]
+      },
+      "offset": 0
+    }
+  ]
+}
+
+```

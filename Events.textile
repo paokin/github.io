@@ -1,0 +1,399 @@
+```typescript
+type Event = {
+    id: string
+    entityType: number
+    type: EventType
+    sportId: string
+    sportName: string
+    sportOrder: number
+    eventName?: string
+    regionId: string
+    regionCode: string
+    regionName: string
+    leagueId: string
+    leagueName: string
+    leagueOrder: number
+    isTopLeague: boolean
+    participants: Participant[] // Described in a separate table below.
+    markets: array // List of Market ids for mapping markets to events objects in the same response.
+    marketGroups: MarketGroup[] // Described in a separate table below.
+    totalMarketsCount: number
+    startEventDate: ISODateTimeString
+    status: string
+    score: GameScore // Described in a separate table below.
+    isLive: boolean
+    isGoingLive: boolean
+    liveGameState?: LiveGameState // Described in a separate table below.
+    tags: string[] // Described in a separate table below.
+    metadata: Dictionary<any> // Described in a separate table below.
+    isSuspended: boolean
+}
+```
+
+| *Name* | *Description* | *Format* | *Queryable* | *Returnable* |
+|id|		Specifies the identifier of the sports event.|string|Yes|Yes|
+|entityType|	Specifies the type of the entity. Always 0 for events.|number|Yes|Yes|
+|type|		Specifies the type of the sports event. Possible values are "Fixture" and "Outright".|EventType|Yes|Yes|
+|sportId|	Specifies the identifier of the sport.|string|	Yes|	Yes|
+|sportName|	Specifies the name of the sport (translated).	|string	|Yes|	Yes|
+|sportOrder|	Specifies the sorting order of the sport.|	number	|Yes|	Yes|
+|regionId|	Specifies the identifier of the region.	|string|Yes|	Yes|
+|regionCode|	Specifies ISO country code or (for regions in country) region code.	|string|Yes	|Yes|
+|regionName|	Specifies the name of the region.|	string|	Yes	|Yes|
+|leagueId|	Specifies the identifier of the league.|	string	|Yes|	Yes|
+|leagueOrder|	Specifies the sorting order of the league.| 	number|	Yes|	Yes|
+|isTopLeague|	Specifies if the league is marked with a top flag.|	Boolean|Yes	|Yes|
+|participants|	Specifies the participants in the event. Parameters of the Participant object are described in a separate table below.|	Array|	Yes|	Yes|
+|eventName?:|	Specifies the name of the event. Empty for events of type "Fixture" (use participant names to construct the localised event name, e.g. "ParticipantHome vs ParticipantAway"|	string|	No|	Yes|
+|markets|	Specifies the markets related to the event.|	Array|	No|	Yes|
+|marketGroups|	Specifies the market groups defined within the event.|	Array|	No|	Yes|
+|totalMarketsCount|	Specifies the total markets count. Not affected by the IncludeMarkets filter, i.e. always returns the total count of available markets for the event.	|number	|No|	Yes|
+|startEventDate	|Specifies the date and time of the beginning of the event.|	ISODateTimeString	|No |Yes|
+|status		|Specifies the status of the event.|string|Yes|Yes|
+|score	|Specifies the current score of the event.	|ameScore|	Yes|	Yes|
+|isLive		|Specifies if the event is live.	|Boolean|Yes|	Yes|
+|isGoingLive	|Specifies if the event is going live when started, for pre-live only.	|Boolean	|Yes|Yes|
+|liveGameState?	|Specifies additional information on the event such as status, score, current time. See all parameters in a table below.|LiveGameState|	Yes|	Yes|
+|tags|	Specifies additional information on the event.| string|	Yes|	Yes|
+|metadata|	Specifies additional information on the event.|	string|	Yes|	Yes|
+|isSuspended|	Spefifies if the event is suspended.|	boolean	|Yes	|Yes|
+
+
+***
+
+h3. Participant
+ 
+```typescript
+type Participant = {
+    id: string
+    name: string
+    venueRole?: VenueRole
+    country: string
+    metadata: Dictionary<any> 
+}
+```
+
+
+|Name|Description|Format|Queryable|Returnable|
+|id|Specifies the identifier of the participant.|string	|Yes|Yes|
+|name|Specifies the name of the participant.|string|Yes |Yes|
+|venueRole?|	Specifies additional information on the venue.	| VenueRole: Home or Away|Yes |	Yes |
+|country| Specifies the ISO code of the country.|	String	|Yes |	Yes |
+|metadata|	Specifies additional information on the participant, such as runnerNumber: number, number, imageUrl: string, weight: string, age: number.| 	dictionary|	Yes |	Yes |
+
+
+
+***
+
+h3. LiveGameState
+
+```typescript
+type LiveGameState = {
+    clockRunning: Boolean
+    gameTime: ISODateTimeString
+    gamePart: string
+}
+```
+
+|Parameter|Description|Format|Queryable|Returmable|
+|clockRunning|	Specifies if the in-game clock is currently running. |Boolean |Yes	|Yes|
+|gameTime|	Specifies the current in-game time in seconds. Note that presentation needs might differ depending on the sport. |number |Yes	|Yes|
+|gamePart|	Specifies the current part of the game. Note that this will differ per sport.|string	|Yes	|Yes|
+
+h4. Possible "gamePart" values per sport
+
+h5. Soccer
+
+FirstHalf
+PauseAfterFirstHalf
+SecondHalf
+
+h5. Basketball
+
+FirstQuarter
+PauseAfterFirstQuarter
+SecondQuarter
+PauseAfterSecondQuarter
+ThirdQuarter
+PauseAfterThirdQuarter
+FourthQuarter
+PauseAfterFourthQuarter
+FirstOvertime
+PauseAfterFirstOvertime
+SecondOvertime
+
+h5. Tennis
+
+FirstSet
+SecondSet
+ThirdSet
+FourthSet
+FifthSet
+
+h5. Handball
+
+FirstHalf
+PauseAfterFirstHalf
+SecondHalf
+
+h5. Ice hockey
+
+FirstPeriod
+PauseAfterFirstPeriod
+SecondPeriod
+PauseAfterSecondPeriod
+ThirdPeriod
+PauseAfterThirdPeriod
+Overtime
+
+h5. American Football
+
+FirstQuarter
+PauseAfterFirstQuarter
+SecondQuarter
+PauseAfterFirstHalf
+ThirdQuarter
+PauseAfterThirdQuarter
+FourthQuarter
+PauseAfterFourthQuarter
+Overtime
+
+h5. Rugby League
+
+FirstHalf
+PauseAfterFirstHalf
+SecondHalf
+
+h5. Rugby Union
+
+FirstHalf
+PauseAfterFirstHalf
+SecondHalf
+
+h5. Volleyball
+
+FirstSet
+SecondSet
+ThirdSet
+FourthSet
+FifthSet
+
+***
+
+h3. MarketGroup
+
+```typescript
+type MarketGroup = {
+    id: string
+    name: string
+}
+```
+
+|Parameter|Description|Format|Queryable|Returmable|
+|id|Specifies the identifier of the group.|string|Yes|Yes|
+|name|Specifies the name of the group. Note that this field is currently NOT localised.|string|	Yes|	Yes|
+
+***
+
+h3. GameScore
+
+```typescript
+type GameScore = {
+    scoreHome: number
+    scoreAway: number
+    additionalScores: Dictionary<any>
+}
+```
+
+|Parameter|Description|Format|Queryable|Returmable|
+|scoreHome|Specifies the score for the home team.|number|	Yes|	Yes|
+|scoreAway|Specifies the score for the away team.|number|	Yes|	Yes|
+|additionalScores|Provides a list of additional scores, e.g. per game part. Specific per sport.|Dictionary|Yes|Yes|
+
+h4. Possible "AdditionalScores" properties per sport
+
+Below is a list of possible parameters which will appear under the additionalScores dictionary, depending on the sport of the event. A few general patterns and rules have to be taken into account:
+
+* Almost all properties will have an appendix or 1 or 2 in the name. These indicate score for the Home or Away team, respectively. For example, `FirstHalfScore1` is the score of the Home team for the first half of a soccer game.
+* The only exception is the `onServe" property, which will appear for several sports and will have a _value_ of 1 or 2. The pattern is the same -- `onServe: 1` for a Volleyball game means that the Home team is serving. We use the `onServe` parameter also for Baseball and Cricket events to allow easier, more generalised implementation, realising that it is not the correct technical term.
+* Not all properties will be always returned. Missing pair of properties means that there is no score of the respective game part or (in rare cases) that we don't have the respective data. For example, during the third quarter of a basketball game, we will not return `BasketballFourthQuarterScore1` and `BasketballFourthQuarterScore2` parameters.
+
+h5. Soccer
+
+* FirstHalfScore1
+* FirstHalfScore2
+* SecondHalfScore1
+* SecondHalfScore2
+* YellowCardsTeam1
+* YellowCardsTeam2
+* RedCardsTeam1
+* RedCardsTeam2
+* CornersTeam1
+* CornersTeam2
+
+h5. Basketball
+
+* BasketballFirstQuarterScore1
+* BasketballFirstQuarterScore2
+* BasketballSecondQuarterScore1
+* BasketballSecondQuarterScore2
+* BasketballFirstHalfScore1
+* BasketballFirstHalfScore2
+* BasketballThirdQuarterScore1
+* BasketballThirdQuarterScore2
+* BasketballFourthQuarterScore1
+* BasketballFourthQuarterScore2
+* BasketballSecondHalfScore1
+* BasketballSecondHalfScore2
+* BasketballResultType
+* InputForPeriod
+* BasketballOverTimeScore1
+* BasketballOverTimeScore2
+
+h5. Tennis
+
+* onServe
+* FirstSetScore1
+* FirstSetScore2
+* SecondSetScore1
+* SecondSetScore1
+* ThirdSetScore1
+* ThirdSetScore1
+* FourthSetScore1
+* FourthSetScore1
+* FifthSetScore1
+* FifthSetScore1
+* CurrentGameScore1
+* CurrentGameScore2
+
+h5. American Football
+
+* AmericanFootball1QScore1
+* AmericanFootball1QScore2
+* AmericanFootball2QScore1
+* AmericanFootball2QScore2
+* AmericanFootball3QScore1
+* AmericanFootball3QScore2
+* AmericanFootball4QScore1
+* AmericanFootball4QScore2
+* AmericanFootball1HScore1
+* AmericanFootball1HScore2
+* AmericanFootball2HScore1
+* AmericanFootball2HScore2
+
+h5. Baseball
+
+* onServe
+* FirstInningScore1
+* FirstInningScore2
+* SecondInningScore1
+* SecondInningScore2
+* ThirdInningScore1
+* ThirdInningScore2
+* FourthInningScore1
+* FourthInningScore2
+* FifthInningScore1
+* FifthInningScore2
+* SixthInningScore1
+* SixthInningScore2
+* SeventhInningScore1
+* SeventhInningScore2
+* EighthInningScore1
+* EighthInningScore2
+* NinthInningScore1
+* NinthInningScore2
+* FirstHalfScore1
+* FirstHalfScore2
+* SecondHalfScore1
+* SecondHalfScore2
+
+h5. Ice hockey
+
+* IceHockeyFirstPeriodScore1
+* IceHockeyFirstPeriodScore2
+* IceHockeySecondPeriodScore1
+* IceHockeySecondPeriodScore2
+* IceHockeyThirdPeriodScore1
+* IceHockeyThirdPeriodScore2
+
+h5. Volleyball
+
+* onServe
+* VolleyballFirstSetScore1
+* VolleyballFirstSetScore2
+* VolleyballSecondSetScore1
+* VolleyballSecondSetScore2
+* VolleyballThirdSetScore1
+* VolleyballThirdSetScore2
+* VolleyballFourthSetScore1
+* VolleyballFourthSetScore2
+* VolleyballFifthSetScore1
+* VolleyballFifthSetScore2
+
+h5. Aussie rules
+
+* AussieRules1HScore1
+* AussieRules1HScore2
+* AussieRules2HScore1
+* AussieRules2HScore2
+* AussieRules1QScore1
+* AussieRules1QScore2
+* AussieRules1QGoalScore1
+* AussieRules1QGoalScore2
+* AussieRules1QBehinds1
+* AussieRules1QBehinds2
+* AussieRules2QScore1
+* AussieRules2QScore2
+* AussieRules2QGoalScore1
+* AussieRules2QGoalScore2
+* AussieRules2QBehinds1
+* AussieRules2QBehinds2
+* AussieRules3QScore1
+* AussieRules3QScore2
+* AussieRules3QGoalScore1
+* AussieRules3QGoalScore2
+* AussieRules3QBehinds1
+* AussieRules3QBehinds2
+* AussieRules4QScore1
+* AussieRules4QScore2
+* AussieRules4QGoalScore1
+* AussieRules4QGoalScore2
+* AussieRules4QBehinds1
+* AussieRules4QBehinds2
+* AussieRulesGoalScoreTotal1
+* AussieRulesBehindsTotal1
+* AussieRulesGoalScoreTotal2
+* AussieRulesBehindsTotal2
+
+h5. Rugby league
+
+* RugbyLeague1HScore1
+* RugbyLeague1HScore2
+* RugbyLeague2HScore1
+* RugbyLeague2HScore2
+* RugbyLeagueTriesFTScore1
+* RugbyLeagueTriesFTScore2
+* RugbyLeagueTries1HScore1
+* RugbyLeagueTries1HScore2
+* RugbyLeagueTries2HScore1
+* RugbyLeagueTries2HScore2
+
+h5. Cricket
+
+* onServe
+
+***
+
+h3. Tags
+
+|Tag|Description|
+|FastMarkets|Fast markets are available for the event.|
+|Statistics|Integration with statistics provider is available for the event.|
+|Livestream|Integration with live streaming provider is available for the event.|
+
+***
+
+h3. Metadata
+
+|Parameter|Description|
+|||

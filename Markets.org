@@ -1,0 +1,109 @@
+```typescript
+type Market = {
+    id: string
+    marketType: MarketType // All parameters are described in a separate table! 
+    sportId: string
+    leagueId: string
+    startDate: ISODateTimeString
+    title?: string
+    participantMapping?: number
+    selections: Selection[] // The array is shown in a separate table below! 
+    eventId: string
+    entityType: EntityType
+    isLive: boolean
+    liveData: LiveData // All parameters are described in a separate table! 
+    groupId: number
+    groupName: string
+    liveGroupId: number
+    preLiveGroupId: number
+    metadata: Dictionary<string>
+    tags: string[]
+}
+```
+
+|Name|	Description |	Format|	Queryable|	Returnable |
+|---+---+---+---+---|
+|id|	Specifies the identifier of the market.|string|	Yes|	Yes |
+|sportId| Specifies the identifier of the sport.|	number|	Yes|	Yes|
+|leagueId|	Specifies the identifier of the league. |	number|	Yes|	Yes|
+|startDate|	Specifies the start date and time of the event the market is referring to. Example: 2017-07-21T17:00:00Z, the format of the date and time is according to the International Organization for Standardisation (ISO).|	Date|	Yes|	Yes|
+|title|	Specifies the title of the market.|	string|	Yes|	Yes|
+|participantMapping|	Specifies if the mapping is available for the participant.|	number|	Yes|	Yes|
+|eventId|Specifies the identifier of the event.|string| 	Yes|	Yes |
+|entityType|	Specifies the entity type.|	ЕntityType|	Yes|	Yes|
+|isLive|	Specifies if the market refers to a live event.	|Boolean|	Yes|	Yes|
+|groupId| Identification of the group.|	number|	Yes|	Yes|
+|liveGroupId|	Identification of the live group.|	number|	Yes|	Yes|
+|preLiveGroupId	|Specifies the identifier of the pre-live group.|	number|	Yes|	Yes|
+|metadata|	Specifies additional information on different aspects of the group.|	Dictionary|	Yes|	Yes|
+|tags|	Specifies additional information on different aspects of the market.|	string|	Yes|	Yes|
+|marketType*| Contains parameters for the market type.The marketType parameters are described in a table below.|object	|Yes|	Yes|
+|liveData*|	Provides information on the score for the two teams and if the event is suspended. The LiveData parameters are described in a separate table.|	LiveData|	Yes|	Yes|
+
+
+***
+
+Market Type
+```typescript
+type MarketType = {
+    id: string
+    name: string
+    swapTeams: boolean
+}
+```
+
+|Name|	Description| 	Format|	Queryable|	Returnable |
+|---+---+---+---+---|
+|id|	Specifies the identifier of the market type.|	string|	Yes|	Yes|
+|name|	Specifies the name of the market type.|	string|	Yes|	Yes|
+|swapTeams|	Specifies the order of the teams/players' names.|	boolean|	Yes|	Yes|
+
+***
+
+Live Data 
+
+```typescript
+type LiveData = {
+    scoreHome: number
+    scoreAway: number
+    isSuspended: boolean
+}
+```
+
+|Name|	Description |	Format|	Queryable|	Returnable |
+|---+---+---+---+---|
+|scoreHome|	Specifies the score for the home team.|	number	|Yes|	Yes|
+|scoreAway|	Specifies the score for the away team.|	number| Yes |	Yes |
+|isSuspended|	Specifies if the event is suspended.|	Boolean	|Yes 	|Yes |
+
+***
+
+Selection 
+
+```typescript
+type Selection = {
+    id: string
+    side?: SelectionSide
+    type?: SelectionType
+    group: number
+    name: string
+    title?: string
+    displayOdds: Dictionary<string>
+    trueOdds: number
+    points: number
+    isDisabled: Boolean
+}
+```
+
+|Parameter|	Description|Format|Queryable|Returnable|
+|---+---+---+---+---|
+|id|Specifies the identifier of the selection.|string|	Yes|Yes|
+|side*|	Specifies the SelectionSide. SelectionSide: The possible values are Home = 1, Draw = 2, Away = 3.| SelectionSide|Yes|Yes|
+|type|Specifies the selection type.SelectionType: the possible values are: ML = 1, HC = 2, OU = 3, Column1 = 13, Column2 = 14, Column3 = 15| SelectionType|Yes|Yes|
+|group|	Specifies the group of the selection.|string|	Yes|Yes|
+|name|Specifies the name of the team/player in the selection.|sting|Yes|Yes|
+|title| Specifies the title of the event.|string|Yes|Yes|
+|displayOdds|Specifies the odds as they should be displayed in all different styles. Example: "decimal": "1.79", "american": "-127", "fractional": 79/100",  "hk": "0.79", "malay": "0.79", "indo": "-1.27"|string|Yes|Yes|
+|trueOdds| Specifies the mathematically correct odds for the event|number|Yes|Yes|
+|points	|Specifies the points in the event.|number|	Yes|	Yes|
+|isDisabled |Specifies if the selection is available for betting|Boolean|	Yes|	Yes|

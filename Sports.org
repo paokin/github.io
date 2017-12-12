@@ -1,0 +1,24 @@
+```typescript
+type Sport = {
+    id: string
+    order: number
+    name: string
+    liveFixturesTotalCount: number
+    fixturesTotalCount: number
+    fixturesCount: number
+    outrightsTotalCount: number
+    entityType: EntityType
+}
+```
+
+
+
+|Name|	Description |	Format	|Queryable|	Returnable |
+|id|	Specifies the identifier of the sport.|	string|	Yes|	Yes|
+|order|	Specifies the sorting order of the sport.|	number	|Yes	|Yes|
+|name|	Specifies the name of the sport and the required translations.|  	string|	Yes|	Yes|
+|liveFixturesTotalCount|	Specifies the number of live active events.|	number	|Yes	|Yes|
+|fixturesTotalCount|	Specifies the total number of games, both live and pre-live.|	number|	Yes|	Yes|
+|fixturesCount|Specifies the number of games, both live and pre-live, filtered by time range.|	number	|Yes|	Yes|
+|outrightsTotalCount|	Specifies the number of active outrights in a sport.|	number	|Yes|	Yes|
+|entityType|Specifies the entity type.	|EntityType	|No|	Yes|
