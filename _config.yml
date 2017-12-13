@@ -1,3 +1,5 @@
 name: Paolo Test
 version: 1
 markdown: kramdown
+
+theme: jekyll-theme-cayman
